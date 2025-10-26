@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Input, Button } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
@@ -48,6 +48,24 @@ const ConfirmOtp = () => {
     }
   };
 
+  useEffect(() => {
+    document.addEventListener("paste", (e) => {
+      e.preventDefault();
+      const pasteData = e.clipboardData.getData("text");
+      const pastedOtp = pasteData.split("").slice(0, 6);
+      setOtp(pastedOtp);
+    });
+
+    return () => {
+      document.removeEventListener("paste", (e) => {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData("text");
+        const pastedOtp = pasteData.split("").slice(0, 6);
+        setOtp(pastedOtp);
+      });
+    };
+  }, []);
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-6 w-full h-screen">
       <div className="bg-white shadow-lg rounded-md flex w-full h-full overflow-hidden">
@@ -55,7 +73,7 @@ const ConfirmOtp = () => {
         <div className="w-1/2 h-full hidden md:block">
           <img src={otpImage} alt="OTP Verification" className="w-full h-full object-cover" />
         </div>
-        
+
         {/* Right Side - OTP Verification Form */}
         <div className="w-full md:w-1/2 h-full p-8 flex flex-col justify-center items-center">
           <div className="flex justify-center mb-4">
@@ -65,7 +83,7 @@ const ConfirmOtp = () => {
           <p className="text-center text-gray-600 mb-6">
             We have sent an OTP to <span className="font-semibold">{email}</span>
           </p>
-          
+
           <form onSubmit={handleVerifyOtp} className="w-3/4 max-w-sm flex flex-col items-center">
             <div className="flex justify-center gap-2 mb-4">
               {otp.map((digit, index) => (

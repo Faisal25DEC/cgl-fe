@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: import.meta.env.VITE_API_URL,
   headers: { "Content-Type": "application/json" },
 });
 
@@ -11,15 +11,11 @@ export const registerUser = (userData) => API.post("/user/register", userData);
 // ✅ Tag APIs
 export const createTag = (tagData) => API.post("/tags/create", tagData);
 export const getAllTags = () => API.get("/tags/list");
-export const getTagsByDataType = (dataTypeCode) =>
-  API.get(`/tags/list/${dataTypeCode}`);
+export const getTagsByDataType = (dataTypeCode) => API.get(`/tags/list/${dataTypeCode}`);
 export const getTagById = (id) => API.get(`/tags/${id}`);
-export const getTagMainIdsByDataType = (dataTypeCode) =>
-  API.get(`/tags/tagMainIds/${dataTypeCode}`);
-export const getTagDetailsByTagMainId = (tagMainId) =>
-  API.get(`/tags/tagDetails/${tagMainId}`);
-export const updateTag = (id, updatedData) =>
-  API.put(`/tags/update/${id}`, updatedData);
+export const getTagMainIdsByDataType = (dataTypeCode) => API.get(`/tags/tagMainIds/${dataTypeCode}`);
+export const getTagDetailsByTagMainId = (tagMainId) => API.get(`/tags/tagDetails/${tagMainId}`);
+export const updateTag = (id, updatedData) => API.put(`/tags/update/${id}`, updatedData);
 export const deleteTag = (id) => API.delete(`/tags/delete/${id}`);
 
 // ✅ Book APIs
@@ -27,11 +23,10 @@ export const createBook = (bookData) => API.post("/books/create", bookData);
 export const getAllBooks = () => API.get("/books/list");
 export const getBookNamesOnly = () => API.get("/books/names");
 export const getBookById = (slug) => API.get(`/books/${slug}`);
-export const updateBook = (slug, updatedData) =>
-  API.put(`/books/update/${slug}`, updatedData);
+export const updateBook = (slug, updatedData) => API.put(`/books/update/${slug}`, updatedData);
 export const deleteBook = (slug) => API.delete(`/books/delete/${slug}`);
 export const getBooksWithChapters = () => {
-  return API.get('/books/with-chapters');
+  return API.get("/books/with-chapters");
 };
 
 // Create new chapter

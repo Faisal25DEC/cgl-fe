@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/confirm-otp" element={<ConfirmOtp />} />
-          <Route path="/admin" element={<BookPage />} />
+          <Route path="/dashboard" element={<BookPage />} />
         </Routes>
       </AuthProvider>
     </Router>
