@@ -1,0 +1,23 @@
+.book-page { max-width: 1000px; margin: 24px auto; padding: 0 12px; }
+.book-header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+.book-header .row { display:flex; gap:8px; width: 100%; justify-content: flex-end; }
+.search { flex:1; min-width: 300px; padding:8px 10px; border:1px solid #ddd; border-radius:8px; }
+.primary { background:#0a7cff; color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.primary:disabled { opacity:.6; cursor:not-allowed; }
+button { padding:6px 10px; border:1px solid #ddd; border-radius:8px; background:white; cursor:pointer; }
+button.icon { border:none; padding:4px 8px; font-size:18px; }
+button.danger { border-color:#e74c3c; color:#e74c3c; }
+.error { color:#c0392b; background:#fdecea; border:1px solid #fadbd8; padding:8px 10px; border-radius:8px; margin:8px 0; }
+.ghost { color:#666; padding:8px 0; }
+.book-table { width:100%; border-collapse:collapse; }
+.book-table th, .book-table td { border-bottom:1px solid #eee; padding:8px 6px; text-align:left; }
+.book-table td.intro { max-width: 420px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.modal { position:fixed; inset:0; background:rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; padding:16px; }
+.card { background:white; border-radius:12px; width: min(680px, 96vw); box-shadow:0 10px 30px rgba(0,0,0,.15); }
+.card-head { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; border-bottom:1px solid #eee; }
+.book-form { padding:16px; }
+.book-form .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+.book-form label { display:flex; flex-direction:column; gap:6px; margin:8px 0; }
+.book-form input, .book-form textarea { padding:8px 10px; border:1px solid #ddd; border-radius:8px; }
+.book-form .actions { display:flex; justify-content:flex-end; gap:8px; margin-top:12px; }
+small.error { color:#c0392b; }
